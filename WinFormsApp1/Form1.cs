@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 namespace WinFormsApp1
 {
     public partial class Form1 : Form
@@ -6,7 +8,7 @@ namespace WinFormsApp1
         string txtLastName;
         string txtname;
 
-
+        int grade;
 
         public Form1()
         {
@@ -40,19 +42,61 @@ namespace WinFormsApp1
 
             if (txtbox1 != null && txtbox1 != null && txtbox1 != null)
             {
+                while (true)
+                {
+                    try
+                    {
+                        grade = Convert.ToInt32(nup.Value);
+                        break;
+                    }
+
+                    catch (FormatException)
+                    {
+                        txtbox.Text = "Please enter a right Grade";
+                    }
+                }
+
+
                 NamePerson n1 = new NamePerson(txtbox1.Text, txtbox2.Text, txtbox3.Text);
-                textBox1.Text = n1.Name;
 
 
-                Person n2 = new Person(n1, dt1);
+                DateTime dt = dt1.Value;
 
-                estudient n3 = new estudient(n1, dt1, txtbox4.Text, txtbox5.Text, Convert.ToInt32(nup));
+                estudient n3 = new estudient(txtbox1.Text, txtbox2.Text, txtbox3.Text, dt, txtbox4.Text, txtbox5.Text, grade);
 
+                txtbox.Text = Convert.ToString(n3.Birthdate);
+                txtbox.Text = Convert.ToString(n3.Grade);
+
+                txtbox.Text = n3.ToString();
             }
 
 
 
 
         }
+
+
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dt1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnd_Click(object sender, EventArgs e)
+        {
+            
+          txtbox1.Clear();
+        txtbox2.Clear();
+        txtbox3.Clear();
+         txtbox4.Clear();
+            txtbox5.Clear();
+         txtbox.Clear();
+            nup.Value = 0;
+    }
     }
 }

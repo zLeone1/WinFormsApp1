@@ -42,7 +42,7 @@ namespace WinFormsApp1
         }
         public override string ToString()
         {
-            return "";
+            return  $" Name: {name} \n Last Name: {lastname} \n Mother Last Name: {motherlastname} ";
         }
 
 
@@ -53,6 +53,6 @@ namespace WinFormsApp1
             this.motherlastname = motherlastname;
         }
 
-
+       
     }
 }

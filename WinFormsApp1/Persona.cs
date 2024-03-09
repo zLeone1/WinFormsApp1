@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace WinFormsApp1
 {
-    internal class Person
+    internal class Person : NamePerson
     {
-        NamePerson NamePerson { get; set; }
+       
 
-        DateTimePicker birthdate;
+        DateTime birthdate;
 
-        public DateTimePicker Birthdate
+        public DateTime Birthdate
         {
             
             get { return birthdate; } 
@@ -23,7 +23,7 @@ namespace WinFormsApp1
                  
         }
 
-        public Person(NamePerson namePerson, DateTimePicker birthdate)
+        public Person(string name, string motherlastname, string lastname, DateTime birthdate) : base (name, motherlastname, lastname)
         {
            
 
@@ -33,7 +33,7 @@ namespace WinFormsApp1
 
         public override string ToString()
         {
-            return base.ToString();
+            return  base.ToString() + $" \n Birth Date: {birthdate} ";
         }
     }
 }
