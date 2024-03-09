@@ -29,7 +29,7 @@ namespace WinFormsApp1
             set { grade = value; }
         }
 
-        public estudient(NamePerson namePerson,DateTimePicker birthdate, string schoolid, string career, int grade ) : base(namePerson, birthdate)
+        public estudient(string name, string motherlastname, string lastname,DateTime birthdate, string schoolid, string career, int grade ) : base(name, motherlastname, lastname, birthdate)
         {
             this.schoolid = schoolid;
             
@@ -37,6 +37,11 @@ namespace WinFormsApp1
             
             this.grade = grade;
             
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + $" \n ID: {schoolid}\n Career: {career}\n Grade: {grade}";
         }
     }
 }

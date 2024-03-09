@@ -43,13 +43,14 @@
             txtbox3 = new TextBox();
             txtbox4 = new TextBox();
             txtbox5 = new TextBox();
-            textBox1 = new TextBox();
+            txtbox = new RichTextBox();
+            btnd = new Button();
             ((System.ComponentModel.ISupportInitialize)nup).BeginInit();
             SuspendLayout();
             // 
             // btn1
             // 
-            btn1.Location = new Point(686, 381);
+            btn1.Location = new Point(626, 390);
             btn1.Name = "btn1";
             btn1.Size = new Size(75, 23);
             btn1.TabIndex = 0;
@@ -123,10 +124,12 @@
             // 
             // dt1
             // 
-            dt1.Location = new Point(446, 44);
+            dt1.Format = DateTimePickerFormat.Custom;
+            dt1.Location = new Point(451, 44);
             dt1.Name = "dt1";
             dt1.Size = new Size(200, 23);
             dt1.TabIndex = 8;
+            dt1.ValueChanged += dt1_ValueChanged;
             // 
             // nup
             // 
@@ -173,19 +176,32 @@
             txtbox5.Size = new Size(100, 23);
             txtbox5.TabIndex = 14;
             // 
-            // textBox1
+            // txtbox
             // 
-            textBox1.Location = new Point(546, 381);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 15;
+            txtbox.Location = new Point(94, 308);
+            txtbox.Name = "txtbox";
+            txtbox.Size = new Size(392, 105);
+            txtbox.TabIndex = 16;
+            txtbox.Text = "";
+            txtbox.TextChanged += richTextBox1_TextChanged;
+            // 
+            // btnd
+            // 
+            btnd.Location = new Point(626, 361);
+            btnd.Name = "btnd";
+            btnd.Size = new Size(75, 23);
+            btnd.TabIndex = 17;
+            btnd.Text = "Clear";
+            btnd.UseVisualStyleBackColor = true;
+            btnd.Click += btnd_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(textBox1);
+            Controls.Add(btnd);
+            Controls.Add(txtbox);
             Controls.Add(txtbox5);
             Controls.Add(txtbox4);
             Controls.Add(txtbox3);
@@ -225,6 +241,7 @@
         private TextBox txtbox3;
         private TextBox txtbox4;
         private TextBox txtbox5;
-        private TextBox textBox1;
+        private RichTextBox txtbox;
+        private Button btnd;
     }
 }
